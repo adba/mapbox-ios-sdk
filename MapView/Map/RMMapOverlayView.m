@@ -12,20 +12,19 @@
 #import "RMPixel.h"
 
 @interface RMMapOverlayView ()
-
-- (void)handleSingleTap:(UIGestureRecognizer *)recognizer;
-- (void)handleDoubleTap:(UIGestureRecognizer *)recognizer;
-
 @end
 
 @implementation RMMapOverlayView
 {
-    BOOL _trackPanGesture;
     CGPoint _lastTranslation;
     RMAnnotation *_draggedAnnotation;
 }
 
 @synthesize delegate;
+@synthesize lastTranslation = _lastTranslation;
+@synthesize draggedAnnotation = _draggedAnnotation;
+
+
 
 + (Class)layerClass
 {
@@ -39,23 +38,8 @@
 
     self.layer.masksToBounds = YES;
 
-    _trackPanGesture = NO;
     _lastTranslation = CGPointZero;
     _draggedAnnotation = nil;
-
-    UITapGestureRecognizer *doubleTapRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTap:)] autorelease];
-    doubleTapRecognizer.numberOfTapsRequired = 2;
-
-    UITapGestureRecognizer *singleTapRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)] autorelease];
-    [singleTapRecognizer requireGestureRecognizerToFail:doubleTapRecognizer];
-
-    UIPanGestureRecognizer *panGestureRecognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)] autorelease];
-    panGestureRecognizer.minimumNumberOfTouches = 1;
-    panGestureRecognizer.maximumNumberOfTouches = 1;
-
-    [self addGestureRecognizer:singleTapRecognizer];
-    [self addGestureRecognizer:doubleTapRecognizer];
-    [self addGestureRecognizer:panGestureRecognizer];
 
     return self;
 }
@@ -98,7 +82,7 @@
 
 #pragma mark -
 #pragma mark Event handling
-
+/*
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
 {
     if ([[event touchesForView:self] count] > 1)
@@ -226,5 +210,5 @@
         [_draggedAnnotation release]; _draggedAnnotation = nil;
     }
 }
-
+*/
 @end

@@ -48,7 +48,7 @@
     CATiledLayer *tiledLayer = [self tiledLayer];
     tiledLayer.levelsOfDetail = [[mapView tileSource] maxZoom];
     tiledLayer.levelsOfDetailBias = [[mapView tileSource] maxZoom];
-
+/*
     UITapGestureRecognizer *doubleTapRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTap:)] autorelease];
     doubleTapRecognizer.numberOfTapsRequired = 2;
 
@@ -64,7 +64,7 @@
     [self addGestureRecognizer:doubleTapRecognizer];
     [self addGestureRecognizer:twoFingerSingleTapRecognizer];
     [self addGestureRecognizer:longPressRecognizer];
-
+*/
     return self;
 }
 
@@ -135,7 +135,7 @@
 
 #pragma mark -
 #pragma mark Event handling
-
+/*
 - (void)handleSingleTap:(UIGestureRecognizer *)recognizer
 {
     if ([delegate respondsToSelector:@selector(mapTiledLayerView:singleTapAtPoint:)])
@@ -161,5 +161,5 @@
     if ([delegate respondsToSelector:@selector(mapTiledLayerView:doubleTapAtPoint:)])
         [delegate mapTiledLayerView:self doubleTapAtPoint:[recognizer locationInView:mapView]];
 }
-
+*/
 @end
