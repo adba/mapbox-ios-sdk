@@ -262,4 +262,6 @@ typedef enum {
 
 - (void)setUserTrackingMode:(RMUserTrackingMode)mode animated:(BOOL)animated;
 
+- (NSSet *) getVisibleAnnotations;
+
 @end

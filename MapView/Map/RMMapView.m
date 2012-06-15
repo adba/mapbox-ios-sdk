@@ -2471,5 +2471,9 @@ doubleTapOnLabelForAnnotation:[((RMMarker *)[superlayer superlayer]) annotation]
 }
 
 
+- (NSSet *) getVisibleAnnotations {
+    return [NSSet setWithSet:visibleAnnotations];
+}
+
 
 @end
